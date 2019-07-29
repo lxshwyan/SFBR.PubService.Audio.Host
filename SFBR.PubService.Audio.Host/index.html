@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>语音播报服务</title>
+</head>
+
+<body>
+    <div class="container" style="margin:auto;">
+        <audio id="sound" hidden="hidden" preload="none" style="display:none;"></audio>
+        <div class="main">
+            <textarea type="text" class="input_text" id="input" style="width:100%;height:200px;"></textarea>
+        </div>
+        <div class="footer">
+            <input type="button" value="发送" class="btnSend" id="send" onclick="test()" style="float:right;margin-right:20px;">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+    function test() {
+        var content = document.getElementById('input');
+        if (content && content.value) {
+            var audio = document.getElementById('sound');
+            if (audio) {
+                audio.src = "/tool/voice?content=" + content.value;
+                audio.play();
+            }
+        } else{
+            alert('请输入内容！');
+        }
+    }
+</script>
